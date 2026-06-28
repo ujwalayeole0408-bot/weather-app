@@ -19,3 +19,35 @@
     color:red;
     margin-top:15px;
 }
+#darkBtn{
+    margin-bottom:20px;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.dark{
+    background:#111;
+    color:white;
+}
+
+.dark .container{
+    background:#222;
+    color:white;
+}
+
+.dark input{
+    background:#333;
+    color:white;
+    border:1px solid #555;
+}
+
+.dark .box{
+    background:#333;
+}
+
+.dark button{
+    background:#444;
+    color:white;
+}

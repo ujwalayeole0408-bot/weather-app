@@ -1,4 +1,4 @@
-const apiKey = "YOUR_NEW_API_KEY";
+const apiKey = "09a7b85453515091edd1ae4b97f70b6e";
 
 async function getWeather() {
 
@@ -55,6 +55,21 @@ async function getWeather() {
 
         document.getElementById("min").textContent =
             data.main.temp_min + "°C";
+       
+const sunrise = new Date(data.sys.sunrise * 1000);
+const sunset = new Date(data.sys.sunset * 1000);
+
+document.getElementById("sunrise").textContent =
+    sunrise.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+
+document.getElementById("sunset").textContent =
+    sunset.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
 
     } catch (error) {
 
@@ -72,4 +87,18 @@ document.getElementById("city").addEventListener("keypress", function(e) {
     if (e.key === "Enter") {
         getWeather();
     }
+});
+const darkBtn = document.getElementById("darkBtn");
+
+darkBtn.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        darkBtn.innerHTML="☀️ Light Mode";
+    }
+    else{
+        darkBtn.innerHTML="🌙 Dark Mode";
+    }
+
 });
