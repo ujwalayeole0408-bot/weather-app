@@ -1,14 +1,14 @@
-.loader{
-    display:none;
-    margin:20px auto;
-    width:40px;
-    height:40px;
-    border:5px solid #ddd;
-    border-top:5px solid #2196f3;
-    border-radius:50%;
-    animation:spin 1s linear infinite;
+.body{
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:0.5s ease;
+    background:linear-gradient(135deg,#74ebd5,#9face6);
 }
-
 @keyframes spin{
     100%{
         transform:rotate(360deg);
@@ -50,4 +50,43 @@
 .dark button{
     background:#444;
     color:white;
+}
+/* Sunny */
+.sunny{
+    background:linear-gradient(135deg,#f6d365,#fda085);
+}
+
+/* Clouds */
+.clouds{
+    background:linear-gradient(135deg,#bdc3c7,#2c3e50);
+}
+
+/* Rain */
+.rain{
+    background:linear-gradient(135deg,#4b79a1,#283e51);
+}
+
+/* Thunderstorm */
+.thunderstorm{
+    background:linear-gradient(135deg,#232526,#414345);
+}
+
+/* Snow */
+.snow{
+    background:linear-gradient(135deg,#E6DADA,#274046);
+}
+
+/* Mist/Fog */
+.mist{
+    background:linear-gradient(135deg,#757F9A,#D7DDE8);
+}
+
+/* Drizzle */
+.drizzle{
+    background:linear-gradient(135deg,#89f7fe,#66a6ff);
+}
+
+/* Clear Night */
+.night{
+    background:linear-gradient(135deg,#141E30,#243B55);
 }

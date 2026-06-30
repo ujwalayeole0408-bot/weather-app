@@ -1,6 +1,37 @@
 const apiKey = "09a7b85453515091edd1ae4b97f70b6e";
+function changeBackground(weather) {
+
+    document.body.classList.remove(
+        "sunny",
+        "clouds",
+        "rain",
+        "drizzle",
+        "thunderstorm",
+        "snow",
+        "mist"
+    );
+
+    weather = weather.toLowerCase();
+
+    if (weather.includes("clear")) {
+        document.body.classList.add("sunny");
+    } else if (weather.includes("cloud")) {
+        document.body.classList.add("clouds");
+    } else if (weather.includes("rain")) {
+        document.body.classList.add("rain");
+    } else if (weather.includes("drizzle")) {
+        document.body.classList.add("drizzle");
+    } else if (weather.includes("thunderstorm")) {
+        document.body.classList.add("thunderstorm");
+    } else if (weather.includes("snow")) {
+        document.body.classList.add("snow");
+    } else {
+        document.body.classList.add("mist");
+    }
+}
 
 async function getWeather() {
+    
 
     const city = document.getElementById("city").value.trim();
 
@@ -34,6 +65,7 @@ async function getWeather() {
 
         document.getElementById("description").textContent =
             data.weather[0].description;
+            changeBackground(data.weather[0].main);
 
         document.getElementById("icon").src =
             `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
@@ -90,15 +122,22 @@ document.getElementById("city").addEventListener("keypress", function(e) {
 });
 const darkBtn = document.getElementById("darkBtn");
 
+// Load saved theme
+if(localStorage.getItem("theme") === "dark"){
+    document.body.classList.add("dark");
+    darkBtn.innerHTML = "☀️ Light Mode";
+}
+
 darkBtn.addEventListener("click", () => {
 
     document.body.classList.toggle("dark");
 
     if(document.body.classList.contains("dark")){
-        darkBtn.innerHTML="☀️ Light Mode";
-    }
-    else{
-        darkBtn.innerHTML="🌙 Dark Mode";
+        localStorage.setItem("theme","dark");
+        darkBtn.innerHTML = "☀️ Light Mode";
+    }else{
+        localStorage.setItem("theme","light");
+        darkBtn.innerHTML = "🌙 Dark Mode";
     }
 
-});
+}); 
